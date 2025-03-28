@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Memory Game</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="game-overlay">
+    <div id="logo-container">
+      <img src="../img/badEelLogo.png" alt="Game Logo" id="game-logo" />
+    </div>
+  </div>
+
+  <section class="memory-game">
+  </section>
+
+  <div id="score">Punkty: 0</div>
+  <div id="level">Poziom: 1</div>
+  <div id="timer">Czas: 60s</div>
+
+  <div id="end-game-overlay">
+    <div id="end-game-container">
+      <img src="../img/end-game.jpg" alt="Game Over" id="end-game-image" />
+      <p>Niestety dojechal cie...MELEKSIARZ! Sproboj jeszcze raz.</p>
+    </div>
+  </div>
+
+  <div id="level-completed-overlay">
+    <div id="level-completed-container">
+      <img src="" alt="Level Completed" id="level-completed-image" />
+      <p id="level-completed-text"></p>
+    </div>
+  </div>
+
+  <div id="winner-overlay">
+    <div id="winner-container">
+      <img src="../img/winner.jpg" alt="You Win!" id="winner-image" />
+      <p>PYSQO JESTES NAJLEPSZA! Wygralas urodziny! Puzzle! Okulary! Uczte!</p>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

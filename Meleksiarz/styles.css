@@ -1,0 +1,206 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  background: #060AB2;
+}
+
+.memory-game {
+  width: 1200px;
+  height: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+  display: none; /* Hide the game and score initially */
+}
+
+.memory-card {
+  width: calc(22%);
+  height: calc(22%);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  position: absolute;
+  border-radius: 5px;
+  background: #1C7CCC;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+#game-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above all other elements */
+}
+
+#logo-container {
+  text-align: center;
+  width: 100%; /* Ensure the container spans the full width */
+  height: 100%; /* Ensure the container spans the full height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-logo {
+  max-width: 100%; /* Make the logo responsive */
+  max-height: 100%; /* Ensure the logo fits within the screen */
+  cursor: pointer; /* Make the logo clickable */
+}
+
+#game-logo:hover {
+  opacity: 0.8; /* Add a hover effect */
+}
+
+#score {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+#level {
+  position: absolute;
+  top: 60px; /* Position below the score */
+  left: 20px;
+  font-size: 24px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none; /* Initially hidden */
+}
+
+#timer {
+  position: absolute;
+  top: 100px; /* Position below the level display */
+  left: 20px;
+  font-size: 24px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none; /* Initially hidden */
+}
+
+#end-game-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above all other elements */
+}
+
+#end-game-container {
+  text-align: center;
+}
+
+#end-game-image {
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+#winner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above all other elements */
+}
+
+#winner-container {
+  text-align: center;
+  color: white;
+}
+
+#winner-image {
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+#level-completed-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above all other elements */
+}
+
+#level-completed-container {
+  text-align: center;
+  color: white;
+}
+
+#level-completed-image {
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+#level-completed-text {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#next-level-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #1c7ccc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
